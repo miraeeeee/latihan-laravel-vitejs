@@ -1,122 +1,147 @@
 import React from "react";
-import { useForm, Link, usePage } from "@inertiajs/react";
 import AuthLayout from "@/layouts/AuthLayout";
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
+import {
+    Field,
+    FieldLabel,
+    FieldDescription,
+    FieldGroup,
+} from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Link, useForm } from "@inertiajs/react";
 
 export default function RegisterPage() {
-    const { flash } = usePage().props;
-
-    const { data, setData, post, processing, errors } = useForm({
+    const { data, setData, post, processing, errors, reset } = useForm({
         name: "",
         email: "",
         password: "",
-        password_confirmation: "",
     });
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        post("/auth/register/post");
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        post("/auth/register/post", {
+            onSuccess: () => {
+                // Redirect ke halaman login setelah pendaftaran berhasil
+                reset("name", "email", "password");
+            },
+            onError: () => {
+                // Reset field password jika ada error
+                reset("password");
+            },
+        });
     };
 
     return (
         <AuthLayout>
-            <div className="flex min-h-screen items-center justify-center bg-muted">
-                <div className="w-full max-w-md bg-background rounded-xl shadow-lg p-6">
-                    <h1 className="text-2xl font-semibold mb-2">Daftar</h1>
-                    <p className="text-sm text-muted-foreground mb-4">
-                        Buat akun baru untuk menggunakan aplikasi.
-                    </p>
-
-                    {flash?.error && (
-                        <div className="mb-3 rounded-md bg-red-100 text-red-700 text-sm px-3 py-2">
-                            {flash.error}
-                        </div>
-                    )}
-
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                        <div className="space-y-1">
-                            <label htmlFor="name" className="text-sm font-medium">
-                                Nama
-                            </label>
-                            <input
-                                id="name"
-                                type="text"
-                                className="w-full rounded-md border border-input px-3 py-2 text-sm"
-                                value={data.name}
-                                onChange={(e) => setData("name", e.target.value)}
-                            />
-                            {errors.name && (
-                                <p className="text-xs text-red-600">{errors.name}</p>
-                            )}
-                        </div>
-
-                        <div className="space-y-1">
-                            <label htmlFor="email" className="text-sm font-medium">
-                                Email
-                            </label>
-                            <input
-                                id="email"
-                                type="email"
-                                className="w-full rounded-md border border-input px-3 py-2 text-sm"
-                                value={data.email}
-                                onChange={(e) => setData("email", e.target.value)}
-                            />
-                            {errors.email && (
-                                <p className="text-xs text-red-600">{errors.email}</p>
-                            )}
-                        </div>
-
-                        <div className="space-y-1">
-                            <label htmlFor="password" className="text-sm font-medium">
-                                Password
-                            </label>
-                            <input
-                                id="password"
-                                type="password"
-                                className="w-full rounded-md border border-input px-3 py-2 text-sm"
-                                value={data.password}
-                                onChange={(e) => setData("password", e.target.value)}
-                            />
-                            {errors.password && (
-                                <p className="text-xs text-red-600">{errors.password}</p>
-                            )}
-                        </div>
-
-                        <div className="space-y-1">
-                            <label
-                                htmlFor="password_confirmation"
-                                className="text-sm font-medium"
-                            >
-                                Konfirmasi Password
-                            </label>
-                            <input
-                                id="password_confirmation"
-                                type="password"
-                                className="w-full rounded-md border border-input px-3 py-2 text-sm"
-                                value={data.password_confirmation}
-                                onChange={(e) =>
-                                    setData("password_confirmation", e.target.value)
-                                }
-                            />
-                        </div>
-
-                        <button
-                            type="submit"
-                            disabled={processing}
-                            className="mt-2 w-full rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-semibold hover:bg-primary/90 disabled:bg-muted"
-                        >
-                            {processing ? "Memproses..." : "Daftar"}
-                        </button>
-
-                        <p className="text-center text-xs text-muted-foreground mt-2">
-                            Sudah punya akun?{" "}
-                            <Link
-                                href="/auth/login"
-                                className="text-primary hover:underline"
-                            >
-                                Masuk di sini
-                            </Link>
-                        </p>
-                    </form>
+            <div className="container mx-auto px-4 py-8">
+                <div className="w-[360px] mx-auto">
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Daftar untuk akun baru</CardTitle>
+                            <CardDescription>
+                                Isi formulir di bawah ini untuk membuat akun
+                                baru
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <form onSubmit={handleSubmit}>
+                                <FieldGroup>
+                                    <Field>
+                                        <FieldLabel htmlFor="name">
+                                            Nama Lengkap
+                                        </FieldLabel>
+                                        <Input
+                                            id="name"
+                                            type="text"
+                                            placeholder="Masukkan nama lengkap"
+                                            value={data.name}
+                                            onChange={(e) =>
+                                                setData("name", e.target.value)
+                                            }
+                                            required
+                                        />
+                                        {errors.name && (
+                                            <div className="text-sm text-red-600">
+                                                {errors.name}
+                                            </div>
+                                        )}
+                                    </Field>
+                                    <Field>
+                                        <FieldLabel htmlFor="email">
+                                            Email
+                                        </FieldLabel>
+                                        <Input
+                                            id="email"
+                                            type="email"
+                                            placeholder="contoh@email.com"
+                                            value={data.email}
+                                            onChange={(e) =>
+                                                setData("email", e.target.value)
+                                            }
+                                            required
+                                        />
+                                        {errors.password && (
+                                            <div className="text-sm text-red-600">
+                                                {errors.password}
+                                            </div>
+                                        )}
+                                    </Field>
+                                    <Field>
+                                        <div>
+                                            <FieldLabel htmlFor="password">
+                                                Kata Sandi
+                                            </FieldLabel>
+                                        </div>
+                                        <Input
+                                            id="password"
+                                            type="password"
+                                            placeholder="Masukkan kata sandi"
+                                            value={data.password}
+                                            onChange={(e) =>
+                                                setData(
+                                                    "password",
+                                                    e.target.value
+                                                )
+                                            }
+                                            required
+                                        />
+                                        {errors.password && (
+                                            <div className="text-sm text-red-600">
+                                                {errors.password}
+                                            </div>
+                                        )}
+                                    </Field>
+                                    <Field>
+                                        <Button
+                                            type="submit"
+                                            className="w-full"
+                                            disabled={processing}
+                                        >
+                                            {processing
+                                                ? "Memproses..."
+                                                : "Daftar"}
+                                        </Button>
+                                        <FieldDescription className="text-center">
+                                            Sudah punya akun?{" "}
+                                            <Link
+                                                href="/auth/login"
+                                                className="text-primary hover:underline"
+                                            >
+                                                Masuk di sini
+                                            </Link>
+                                        </FieldDescription>
+                                    </Field>
+                                </FieldGroup>
+                            </form>
+                        </CardContent>
+                    </Card>
                 </div>
             </div>
         </AuthLayout>

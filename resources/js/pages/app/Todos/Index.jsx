@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import AppLayout from "@/layouts/AppLayout";
 import { useForm, usePage, Link, router } from "@inertiajs/react";
-import { Button } from "@/Components/ui/button";
-import { Input } from "@/Components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Swal from "sweetalert2";
 import Chart from "react-apexcharts";
@@ -104,9 +104,9 @@ export default function TodosIndex() {
                         </p>
                     </div>
                     <Link href="/">
-                        <button variant="outline" size="sm">
+                        <Button variant="outline" size="sm">
                             Kembali ke Beranda
-                        </button>
+                        </Button>
                     </Link>
                 </div>
 
@@ -216,12 +216,12 @@ export default function TodosIndex() {
                             </div>
 
                             <div className="flex items-center space-x-3">
-                                <button
+                                <Button
                                     type="submit"
                                     disabled={form.processing}
                                 >
                                     Tambah
-                                </button>
+                                </Button>
                             </div>
                         </form>
                     </div>
@@ -282,9 +282,9 @@ export default function TodosIndex() {
                             </select>
                         </div>
                         <div className="pt-5 md:pt-6">
-                            <button type="submit" variant="outline">
+                            <Button type="submit" variant="outline">
                                 Terapkan
-                            </button>
+                            </Button>
                         </div>
                     </form>
                 </div>
@@ -337,20 +337,20 @@ export default function TodosIndex() {
                                     <div className="flex items-center gap-2">
                                         {/* Pindah ke halaman edit baru */}
                                         <Link href={`/todos/${todo.id}/edit`}>
-                                            <button
+                                            <Button
                                                 size="sm"
                                                 variant="outline"
                                             >
                                                 Ubah
-                                            </button>
+                                            </Button>
                                         </Link>
-                                        <button
+                                        <Button
                                             size="sm"
                                             variant="destructive"
                                             onClick={() => onDelete(todo)}
                                         >
                                             Hapus
-                                        </button>
+                                        </Button>
                                     </div>
                                 </li>
                             ))}

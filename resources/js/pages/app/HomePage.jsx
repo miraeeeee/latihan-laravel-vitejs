@@ -1,5 +1,6 @@
 import React from "react";
 import AppLayout from "@/layouts/AppLayout";
+import { Button } from "@/components/ui/button";
 import { Link, usePage } from "@inertiajs/react";
 
 export default function HomePage() {
@@ -25,9 +26,9 @@ export default function HomePage() {
                         </p>
 
                         <Link href="/todos">
-                            <button className="bg-blue-600 hover:bg-blue-700 text-white mt-5">
+                            <Button className="bg-blue-600 hover:bg-blue-700 text-white mt-5">
                                 Buat Rencana (Todos)
-                            </button>
+                            </Button>
                         </Link>
                     </div>
 

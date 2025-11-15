@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, router } from "@inertiajs/react";
+import { Button } from "@/components/ui/button";
 
 export default function AppLayout({ children }) {
     const onLogout = () => {
@@ -7,7 +8,7 @@ export default function AppLayout({ children }) {
     };
 
     return (
-        <div className="min-h-screen bg-background flex flex-col">
+        <div className="min-h-screen bg-background">
             {/* Navigation */}
             <nav className="border-b bg-card">
                 <div className="container mx-auto px-4">
@@ -15,36 +16,40 @@ export default function AppLayout({ children }) {
                         <div className="flex items-center space-x-6">
                             <Link
                                 href="/"
-                                className="text-lg font-semibold text-primary"
+                                className="text-xl font-bold tracking-tight"
                             >
-                                Aplikasi Laravel
+                                Delcom Todos
                             </Link>
-                            <Link href="/app" className="text-sm text-muted-foreground hover:text-primary">
-                                Dashboard
-                            </Link>
+                            <div className="flex items-center space-x-4 text-sm">
+                                <Link
+                                    href="/"
+                                    className="hover:text-blue-600 transition-colors"
+                                >
+                                    Beranda
+                                </Link>
+                                <Link
+                                    href="/todos"
+                                    className="hover:text-blue-600 transition-colors"
+                                >
+                                    Todos
+                                </Link>
+                            </div>
                         </div>
-
-                        <div className="flex items-center space-x-3">
-                            <Link
-                                href="/auth/login"
-                                className="text-sm text-muted-foreground hover:text-primary"
-                            >
-                                Login
-                            </Link>
-                            <button
-                                type="button"
+                        <div className="flex items-center space-x-2">
+                            <Button
+                                variant="outline"
+                                size="sm"
                                 onClick={onLogout}
-                                className="inline-flex items-center rounded-full px-4 py-2 text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90"
                             >
                                 Logout
-                            </button>
+                            </Button>
                         </div>
                     </div>
                 </div>
             </nav>
 
             {/* Main Content */}
-            <main className="flex-1">{children}</main>
+            <main>{children}</main>
 
             {/* Footer */}
             <footer className="border-t bg-card py-6 mt-8">

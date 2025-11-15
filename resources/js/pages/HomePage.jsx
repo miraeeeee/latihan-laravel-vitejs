@@ -1,6 +1,7 @@
 
 import React from "react";
 import AppLayout from "@/layouts/AppLayout";
+import { Button } from "@/components/ui/button";
 import {
     Card,
     CardContent,
@@ -8,7 +9,7 @@ import {
     CardFooter,
     CardHeader,
     CardTitle,
-} from "@/Components/ui/card";
+} from "@/components/ui/card";
 
 export default function HomePage() {
     const technologies = [
@@ -87,7 +88,7 @@ export default function HomePage() {
                                     </p>
                                 </CardContent>
                                 <CardFooter>
-                                    <button
+                                    <Button
                                         variant="outline"
                                         className="w-full"
                                         asChild
@@ -104,7 +105,7 @@ export default function HomePage() {
                                             />
                                             Dokumentasi
                                         </a>
-                                    </button>
+                                    </Button>
                                 </CardFooter>
                             </Card>
                         ))}

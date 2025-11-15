@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import AppLayout from "@/layouts/AppLayout";
 import { useForm, usePage, Link } from "@inertiajs/react";
-import { Button } from "@/components/ui/buttonutton";
-import { Input } from "@/Components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Swal from "sweetalert2";
 
@@ -65,9 +65,9 @@ export default function TodosEdit() {
                         </p>
                     </div>
                     <Link href="/todos">
-                        <button variant="outline" size="sm">
+                        <Button variant="outline" size="sm">
                             Kembali ke Todos
-                        </button>
+                        </Button>
                     </Link>
                 </div>
 
@@ -210,16 +210,16 @@ export default function TodosEdit() {
                         </div>
 
                         <div className="flex items-center space-x-3">
-                            <button
+                            <Button
                                 type="submit"
                                 disabled={form.processing}
                             >
                                 Simpan Perubahan
-                            </button>
+                            </Button>
                             <Link href="/todos">
-                                <button type="button" variant="outline">
+                                <Button type="button" variant="outline">
                                     Batal
-                                </button>
+                                </Button>
                             </Link>
                         </div>
                     </form>
