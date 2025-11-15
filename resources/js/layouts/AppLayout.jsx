@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, router } from "@inertiajs/react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/Components/ui/button";
 
 export default function AppLayout({ children }) {
     const onLogout = () => {
@@ -37,6 +37,7 @@ export default function AppLayout({ children }) {
                         </div>
                         <div className="flex items-center space-x-2">
                             <Button
+
                                 variant="outline"
                                 size="sm"
                                 onClick={onLogout}
