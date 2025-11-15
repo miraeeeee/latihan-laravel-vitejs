@@ -17,7 +17,6 @@ import {
 import { Alert, AlertTitle, AlertDescription } from "@/Components/ui/alert";
 import { CheckCircle2Icon } from "lucide-react";
 import { Input } from "@/Components/ui/input";
-import { Button } from "@/Components/ui/button";
 
 export default function LoginPage() {
     // Ambil data dari controller Laravel

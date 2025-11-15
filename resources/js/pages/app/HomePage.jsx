@@ -1,6 +1,5 @@
 import React from "react";
 import AppLayout from "@/layouts/AppLayout";
-import { Button } from "@/Components/ui/button";
 import { Link, usePage } from "@inertiajs/react";
 
 export default function HomePage() {
