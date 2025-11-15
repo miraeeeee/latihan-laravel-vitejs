@@ -88,7 +88,7 @@ export default function HomePage() {
                                     </p>
                                 </CardContent>
                                 <CardFooter>
-                                    <Button
+                                    <button
                                         variant="outline"
                                         className="w-full"
                                         asChild
@@ -105,7 +105,7 @@ export default function HomePage() {
                                             />
                                             Dokumentasi
                                         </a>
-                                    </Button>
+                                    </button>
                                 </CardFooter>
                             </Card>
                         ))}

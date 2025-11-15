@@ -104,9 +104,9 @@ export default function TodosIndex() {
                         </p>
                     </div>
                     <Link href="/">
-                        <Button variant="outline" size="sm">
+                        <button variant="outline" size="sm">
                             Kembali ke Beranda
-                        </Button>
+                        </button>
                     </Link>
                 </div>
 
@@ -216,12 +216,12 @@ export default function TodosIndex() {
                             </div>
 
                             <div className="flex items-center space-x-3">
-                                <Button
+                                <button
                                     type="submit"
                                     disabled={form.processing}
                                 >
                                     Tambah
-                                </Button>
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -282,9 +282,9 @@ export default function TodosIndex() {
                             </select>
                         </div>
                         <div className="pt-5 md:pt-6">
-                            <Button type="submit" variant="outline">
+                            <button type="submit" variant="outline">
                                 Terapkan
-                            </Button>
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -337,20 +337,20 @@ export default function TodosIndex() {
                                     <div className="flex items-center gap-2">
                                         {/* Pindah ke halaman edit baru */}
                                         <Link href={`/todos/${todo.id}/edit`}>
-                                            <Button
+                                            <button
                                                 size="sm"
                                                 variant="outline"
                                             >
                                                 Ubah
-                                            </Button>
+                                            </button>
                                         </Link>
-                                        <Button
+                                        <button
                                             size="sm"
                                             variant="destructive"
                                             onClick={() => onDelete(todo)}
                                         >
                                             Hapus
-                                        </Button>
+                                        </button>
                                     </div>
                                 </li>
                             ))}

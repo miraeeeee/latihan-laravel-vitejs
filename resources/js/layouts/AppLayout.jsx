@@ -36,14 +36,14 @@ export default function AppLayout({ children }) {
                             </div>
                         </div>
                         <div className="flex items-center space-x-2">
-                            <Button
+                            <button
 
                                 variant="outline"
                                 size="sm"
                                 onClick={onLogout}
                             >
                                 Logout
-                            </Button>
+                            </button>
                         </div>
                     </div>
                 </div>

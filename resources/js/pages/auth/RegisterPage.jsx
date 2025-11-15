@@ -6,15 +6,15 @@ import {
     CardDescription,
     CardHeader,
     CardTitle,
-} from "@/components/ui/card";
+} from "@/Components/ui/card";
 import {
     Field,
     FieldLabel,
     FieldDescription,
     FieldGroup,
-} from "@/components/ui/field";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+} from "@/Components/ui/field";
+import { Input } from "@/Components/ui/input";
+import { Button } from "@/Components/ui/button";
 import { Link, useForm } from "@inertiajs/react";
 
 export default function RegisterPage() {
@@ -119,7 +119,7 @@ export default function RegisterPage() {
                                         )}
                                     </Field>
                                     <Field>
-                                        <Button
+                                        <button
                                             type="submit"
                                             className="w-full"
                                             disabled={processing}
@@ -127,7 +127,7 @@ export default function RegisterPage() {
                                             {processing
                                                 ? "Memproses..."
                                                 : "Daftar"}
-                                        </Button>
+                                        </button>
                                         <FieldDescription className="text-center">
                                             Sudah punya akun?{" "}
                                             <Link

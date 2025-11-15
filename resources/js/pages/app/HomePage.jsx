@@ -26,9 +26,9 @@ export default function HomePage() {
                         </p>
 
                         <Link href="/todos">
-                            <Button className="bg-blue-600 hover:bg-blue-700 text-white mt-5">
+                            <button className="bg-blue-600 hover:bg-blue-700 text-white mt-5">
                                 Buat Rencana (Todos)
-                            </Button>
+                            </button>
                         </Link>
                     </div>
 
