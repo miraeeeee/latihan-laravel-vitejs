@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import AppLayout from "@/layouts/AppLayout";
 import { useForm, usePage, Link, router } from "@inertiajs/react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from "@/Components/ui/button";
+import { Input } from "@/Components/ui/input";
 import { Label } from "@/components/ui/label";
 import Swal from "sweetalert2";
 import Chart from "react-apexcharts";
